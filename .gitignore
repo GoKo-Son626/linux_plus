@@ -2,6 +2,7 @@
 rproc/sources/
 
 # Kernel/module build products.
+rproc/build/
 rproc/week*/build/
 *.o
 *.ko

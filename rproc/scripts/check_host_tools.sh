@@ -14,6 +14,13 @@ require_tool()
 }
 
 for required_tool in \
+	bc \
+	bison \
+	flex \
+	make \
+	perl \
+	python3 \
+	sha256sum \
 	arm-none-eabi-gcc \
 	arm-none-linux-gnueabihf-gcc \
 	arm-none-linux-gnueabihf-readelf \
@@ -69,3 +76,4 @@ printf 'PASS  Clang: %s\n' "$(clang --version | sed -n '1s/^clang version //p')"
 printf 'PASS  LLD: %s\n' "$(ld.lld --version)"
 printf 'PASS  DTC: %s\n' "$(dtc --version)"
 printf 'PASS  dt-schema: %s\n' "$(dt-validate --version)"
+printf 'PASS  bc: %s\n' "$(bc --version | sed -n '1s/^bc //p')"

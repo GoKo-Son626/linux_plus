@@ -50,3 +50,13 @@ dt-doc-validate \
 ```
 
 结果为 exit 0 且无诊断。
+
+## bc host build dependency
+
+- package: Arch `bc 1.08.2-1` (`x86_64`)
+- mirror: <https://mirrors.ustc.edu.cn/archlinux/extra/os/x86_64/bc-1.08.2-1-x86_64.pkg.tar.zst>
+- SHA-256: `b9e5f0d61a674c9be1a0608f3fcab766d989d9a002c37e55a74ccfc8e87027ab`
+- signature: Arch packager key `E75CD4814A77AD943C7AB5A3E0959FEA8B550539`，`pacman-key --verify` 为 Good signature
+- install boundary: 系统包未改动；只把 `bc`/`dc` 从已验证包解到 `/home/shuqi/.local/bin/`
+- version: `bc 1.08.2`
+- reason: Linux v7.2 ARM object build生成 `include/generated/timeconst.h` 时真实需要；缺失时构建以 exit 2 停止

@@ -28,6 +28,13 @@ uname -a 2>&1
 printf 'cmdline: '
 cat /proc/cmdline 2>&1
 
+section "userspace"
+if [ -r /etc/os-release ]; then
+	cat /etc/os-release 2>&1
+else
+	printf 'UNAVAILABLE: /etc/os-release\n'
+fi
+
 section "device tree identity"
 printf 'model:\n'
 read_dt_string /proc/device-tree/model
@@ -36,8 +43,10 @@ read_dt_string /proc/device-tree/compatible
 
 section "remoteproc classes"
 if [ -d /sys/class/remoteproc ]; then
+	found_remoteproc=false
 	for rproc_dir in /sys/class/remoteproc/remoteproc*; do
 		[ -d "$rproc_dir" ] || continue
+		found_remoteproc=true
 		printf '%s\n' "$rproc_dir"
 		for attr_name in name state firmware recovery coredump; do
 			if [ -r "$rproc_dir/$attr_name" ]; then
@@ -46,6 +55,7 @@ if [ -d /sys/class/remoteproc ]; then
 			fi
 		done
 	done
+	[ "$found_remoteproc" = true ] || printf 'EMPTY: no remoteproc instances\n'
 else
 	printf 'UNAVAILABLE: /sys/class/remoteproc\n'
 fi
@@ -54,11 +64,28 @@ section "rpmsg and virtio devices"
 for class_dir in /sys/bus/rpmsg/devices /sys/bus/virtio/devices; do
 	printf '%s:\n' "$class_dir"
 	if [ -d "$class_dir" ]; then
-		find "$class_dir" -mindepth 1 -maxdepth 1 -printf '  %f -> %l\n' 2>&1
+		found_device=false
+		for device_path in "$class_dir"/*; do
+			[ -e "$device_path" ] || [ -L "$device_path" ] || continue
+			found_device=true
+			device_name=${device_path##*/}
+			device_target=$(readlink "$device_path" 2>/dev/null || printf 'not-a-symlink')
+			printf '  %s -> %s\n' "$device_name" "$device_target"
+		done
+		[ "$found_device" = true ] || printf '  EMPTY\n'
 	else
 		printf '  UNAVAILABLE\n'
 	fi
 done
+
+section "rpmsg device nodes"
+found_node=false
+for device_node in /dev/rpmsg* /dev/ttyRPMSG*; do
+	[ -e "$device_node" ] || continue
+	found_node=true
+	ls -l "$device_node" 2>&1
+done
+[ "$found_node" = true ] || printf 'EMPTY\n'
 
 section "loaded modules"
 if [ -r /proc/modules ]; then
@@ -69,9 +96,9 @@ fi
 
 section "firmware candidates"
 if [ -d /lib/firmware ]; then
-	find /lib/firmware -maxdepth 3 -type f \
-		\( -iname '*rpmsg*' -o -iname '*rproc*' -o -iname '*cm4*' -o -iname '*m4*' -o -iname '*esos*' \) \
-		-printf '%p\n' 2>&1
+	find /lib/firmware -type f \
+		\( -iname '*rpmsg*' -o -iname '*rproc*' -o -iname '*cm4.elf' -o -iname '*cm4.bin' -o -iname '*m4.elf' -o -iname '*m4.bin' -o -iname '*esos*' \) \
+		-print 2>&1
 else
 	printf 'UNAVAILABLE: /lib/firmware\n'
 fi

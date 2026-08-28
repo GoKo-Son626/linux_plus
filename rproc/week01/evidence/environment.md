@@ -11,9 +11,12 @@
 - LLD: `22.1.8`
 - DTC: `1.8.1`
 - `dt-validate` / `dt-doc-validate`: `2026.6`，安装在用户级 Python 3.14 venv；复用系统 `dtc 1.8.1` 提供的 `libfdt`
+- `bc`: `1.08.2`，Arch 签名包用户级解出到 `~/.local/bin`；用于内核生成 `timeconst.h`
 - `bpftrace`: missing
 
-结论：Week 1 所需源码追踪、ARM/RISC-V GNU/LLVM 编译与 DT schema 校验环境已就绪。`/opt/arm-gcc-15` 的 bare-metal GCC 未被移动或覆盖，仍不能冒充 ARM Linux kernel GNU cross toolchain。
+结论：Week 1 所需源码追踪、ARM/RISC-V GNU/LLVM 编译、DT schema 校验与 STM32 remoteproc 对象构建环境已就绪。`/opt/arm-gcc-15` 的 bare-metal GCC 未被移动或覆盖，仍不能冒充 ARM Linux kernel GNU cross toolchain。
+
+Codex 独立审计构建已通过，命令、首次缺少 `bc` 的失败和最终 object hash 见 `rproc/reference-review/2026-08-28-week01-second-audit.md`。该构建不计为学习者验收证据。
 
 dt-schema 验证命令与结果：
 

@@ -19,12 +19,12 @@
 - [ ] Resource Table
 - [ ] DA/PA/VA
 - [ ] STM32 platform role
-- [ ] RPMI five abstractions
+- [ ] RPMI Transport / Messaging Protocol / Service Groups / Client / Context
 - [ ] RPMI vs remoteproc
 
 ## Verification
 
-- `stm32_rproc.o` build: `TODO`
+- `stm32_rproc.o` build result/command/commit/compiler/config/hash: `TODO`
 - DT binding check: `TODO`
 - STM32 runtime: `TODO`
 - K1 investigation: `TODO`
@@ -35,11 +35,10 @@
 - source trace: `TODO/100`
 - total: `TODO/100`
 
-## Three things I was wrong about
+## Real misconceptions and fragile points
 
-1. `TODO`
-2. `TODO`
-3. `TODO`
+- real misconceptions and corrections, or `NONE` with reason: `TODO`
+- one point that is still fragile and needs retest: `TODO`
 
 ## Blockers
 
@@ -52,3 +51,10 @@
 ## Next week should NOT
 
 - `TODO`
+
+## Context handoff
+
+- durable state updated: `TODO`
+- misconceptions updated: `TODO`
+- evidence committed and pushed: `TODO`
+- safe to run `/compact`: `TODO`

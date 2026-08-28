@@ -1,5 +1,6 @@
-conceptual: 0
-source_trace: 0
+schema_version: 1
+conceptual: 0 # section A + C, 0..60
+source_trace: 0 # section B, 0..40
 total: 0
 blocking_errors: []
 reviewed_by_codex: false

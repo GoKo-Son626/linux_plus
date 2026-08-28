@@ -12,3 +12,11 @@
 | RPMI/SBI MPXY | generic Linux implementation exists | K1 remoteproc/vendor 代码本身不能证明 RPMI | `UNKNOWN` | `[H]` K1 是否启用 RPMI/MPXY 保持未知 |
 
 证据固定值与文件哈希见 `rproc/references/vendor_sources.md`。`[V]` 表示厂商公开资料，`[S]` 表示固定源码，`[R]` 表示真实板端证据，`[H]` 表示待验证假设。
+
+## 学习者复核
+
+- reviewed_by_learner: `TODO`
+- reproduced one mainline absence query and command: `TODO`
+- located one vendor symbol and recorded commit/path: `TODO`
+- one conclusion I can defend closed-book: `TODO`
+- one item that must remain UNKNOWN: `TODO`

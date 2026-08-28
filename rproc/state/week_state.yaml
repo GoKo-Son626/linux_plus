@@ -28,8 +28,9 @@ tests:
   source_trace_score: null
   build_pass: null
   hardware_pass: null
-blockers:
-  - exact STM32MP157 core-board variant, vendor source path, active DTS and M4 firmware are unknown
-  - BPI-F3 booted mainline commit/config, Bianbu version and board-side RCPU runtime are unknown
+blockers: []
+pending_inputs:
+  - exact STM32MP157 core-board variant, vendor source path, active DTS and M4 firmware are unknown; this does not block Week 1 source study or object build
+  - BPI-F3 booted mainline commit/config, Bianbu version and board-side RCPU runtime are unknown; this does not block the Week 1 evidence-gap exercise
 misconceptions: []
 next_week_adjustments: []

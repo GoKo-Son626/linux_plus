@@ -14,7 +14,7 @@
 4. `rproc_start()` 先 load segments、同步 resource table、prepare subdevices，再调用平台 `ops->start()`。
 5. 当前 `struct rproc_ops` 与 ChatGPT 包列出的成员一致。
 6. STM32 `st_rproc_ops` 的通用 ELF helper 与平台回调映射一致。
-7. Linux master 当前存在 RPMI message header、SBI MPXY mailbox、Clock 与 System-MSI client；没有据此推导规范只含两个 service group。
+7. Linux v7.2 已存在 RPMI message header、SBI MPXY mailbox、Clock 与 System-MSI client；固定 master 快照也单独核过。实现数量不能反推规范只含两个 service group。
 8. K1 mainline DTS 已出现 `syscon_rcpu` 节点，但 `drivers/remoteproc/` 中未找到对应 K1 remoteproc 平台驱动；因此仍必须做 vendor/mainline 证据矩阵。
 
 ## Gemini 中的阻断级错误
