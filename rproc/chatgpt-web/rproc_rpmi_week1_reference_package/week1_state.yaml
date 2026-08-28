@@ -1,0 +1,61 @@
+schema_version: 1
+project: linux-rproc-rpmi-longterm-study
+week: 1
+generated_at: '2026-08-28'
+hours_budget: 20
+allocation_hours:
+  remoteproc_core_elf_resource_table: 8
+  virtio_rpmsg_bridge: 2
+  stm32mp157_source_and_runtime: 5
+  rpmi_v1_and_linux_implementation: 4
+  spacemit_k1_gap_recon: 1
+source_pins:
+  linux_release: v7.2
+  linux_stable_reference: v7.2.1
+  linux_current_snapshot: 1b78070aaef63512688aebfbc82365ef9d6660f1
+  rpmi_spec:
+    version: v1.0
+    status: Ratified
+    date: '2025-07-16'
+    git_tag: v1.0
+  sbi_reference:
+    version: v3.0
+    status: Ratified
+    date: '2025-07-16'
+    relevant_extension: MPXY
+primary_platform:
+  name: STM32MP157
+  role: remoteproc primary hands-on platform
+  mainline_driver: drivers/remoteproc/stm32_rproc.c
+  binding: Documentation/devicetree/bindings/remoteproc/st,stm32-rproc.yaml
+secondary_platform:
+  name: SpacemiT K1
+  role: RISC-V RCPU vendor-vs-mainline reconnaissance; later development target
+  week1_rule: Do not invent a mainline-ready remoteproc driver before locating and validating vendor hardware/driver contracts.
+required_learning_outcomes:
+- Differentiate remoteproc, virtio, vring, rpmsg, mailbox, RPMI and SBI MPXY.
+- Trace rproc_boot -> rproc_fw_boot -> rproc_start -> platform ops.start.
+- Explain DA vs PA/bus vs Linux VA.
+- Explain Resource Table and RSC_VDEV bridge to virtio/rpmsg.
+- Map STM32MP157 probe, rproc_ops and DT binding.
+- Explain RPMI v1.0 abstractions and locate current Linux RPMI implementation.
+- Produce K1 vendor/mainline evidence matrix without guessing.
+acceptance:
+  conceptual_test_min: 80
+  must_trace_boot_without_notes: true
+  build_or_runtime_real_evidence_required: true
+  k1_gap_matrix_required: true
+verification_labels:
+  S: source/spec verified
+  R: runtime/build verified
+  P: platform dependent
+  H: hypothesis/to verify
+progress:
+  status: not_started
+  hours_actual: 0
+  conceptual_score: null
+  source_trace_score: null
+  build_pass: null
+  hardware_pass: null
+  blockers: []
+  misconceptions: []

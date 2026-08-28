@@ -1,0 +1,36 @@
+schema_version: 1
+project: linux-rproc-rpmi-longterm-study
+current_week: 1
+calendar:
+  start: 2026-08-31
+  end: 2026-09-06
+status: ready
+hours:
+  planned: 20
+  actual: 0
+completion_percent: 0
+source_pins:
+  linux_release: v7.2
+  linux_release_commit: 8d3ae59288f1e7d58d76558a6ee96d533bc5019f
+  linux_master_snapshot: 1b78070aaef63512688aebfbc82365ef9d6660f1
+  linux_stable_reference: v7.2.1
+  linux_stable_commit: 458fbaaefba2fc5450c325a6834453dc4f4e52ae
+  rpmi_tag: v1.0
+  rpmi_commit: 27db4b4a405af971f84999adad4806d291f1338e
+confidence:
+  remoteproc_core: 0
+  resource_table: 0
+  rpmsg_bridge: 0
+  stm32_platform: 0
+  rpmi: 0
+tests:
+  conceptual_score: null
+  source_trace_score: null
+  build_pass: null
+  hardware_pass: null
+blockers:
+  - exact STM32MP157 board and access method unknown
+  - exact SpacemiT K1 board, kernel tree and access method unknown
+  - ARM Linux GNU cross compiler and dt-schema are not installed
+misconceptions: []
+next_week_adjustments: []

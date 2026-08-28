@@ -1,0 +1,19 @@
+# External source trees are reproducible and must not enter this repository.
+rproc/sources/
+
+# Kernel/module build products.
+rproc/week*/build/
+*.o
+*.ko
+*.mod
+*.mod.c
+*.cmd
+Module.symvers
+modules.order
+.tmp_versions/
+
+# Local editor and transient review files.
+.idea/
+.vscode/
+*.swp
+*.tmp

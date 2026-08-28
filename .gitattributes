@@ -1,0 +1,2 @@
+# Imported reference Markdown intentionally uses two trailing spaces for hard breaks.
+rproc/chatgpt-web/** whitespace=-trailing-space
