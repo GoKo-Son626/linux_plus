@@ -29,8 +29,8 @@ tests:
   build_pass: null
   hardware_pass: null
 blockers:
-  - exact STM32MP157 board and access method unknown
-  - exact SpacemiT K1 board, kernel tree and access method unknown
-  - ARM Linux GNU cross compiler and dt-schema are not installed
+  - exact STM32MP157 core-board variant, vendor source path, active DTS and M4 firmware are unknown
+  - BPI-F3 booted mainline commit/config, Bianbu version and board-side RCPU runtime are unknown
+  - ARM Linux GNU and RISC-V Linux GNU cross toolchain installation is in progress
 misconceptions: []
 next_week_adjustments: []

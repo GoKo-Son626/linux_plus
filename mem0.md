@@ -36,5 +36,8 @@
 
 - Week 1 日历按 2026-08-31 至 2026-09-06 准备；Gemini 参考文件夹沿用其 `2026-08-30_第1周` 命名。
 - 官方远端已核实 Linux `v7.2`、stable `v7.2.1`、master 固定 commit 与 RPMI `v1.0`。
-- 本机有 Clang 22.1.8 和 ARM bare-metal GCC 15.2；缺少 `arm-linux-gnueabihf-gcc`、`riscv64-linux-gnu-gcc`、dt-schema 与 bpftrace。
-- STM32MP157/K1 的具体板型、连接方式、当前内核/vendor tree 和固件路径仍待用户确认。
+- STM32 平台为正点原子 STM32MP157 开发板、串口连接；标准核心板通常是 STM32MP157DAA1，实物核心板版本、vendor source/DTS/M4 firmware 路径待资料包或板端证据确认。
+- K1 平台为 Banana Pi BPI-F3、串口连接，以 TFTP 启动自编译 mainline；板载 Bianbu 可能仍在，bootargs/bootcmd 已修改，精确运行版本待采集。
+- 本机有 Clang 22.1.8、ARM bare-metal GCC 15.2 与 dt-schema 2026.6；ARM Linux GNU 和 RISC-V Linux GNU 工具链正在按用户级、可校验方式补齐，不改动 `/opt/arm-gcc-15`。
+- GitHub `origin` 为 `git@github.com:GoKo-Son626/linux_plus.git`，`main` 已建立 upstream；后续完成可解释的小目标即 commit + push。
+- 先按现有证据推进；需要卖家资料时给出精确清单，不要求用户一次性整理全部资料。每周持续推进到当周验收真正完成。
