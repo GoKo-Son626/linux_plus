@@ -6,6 +6,8 @@
 - `gemini-spark/`：从 Google Drive 导出的 Gemini 周度产物。
 - `reference-review/`：Codex 对外部参考的事实审计。
 - `prompts/`：下一周交给外部智能体的定向提示词。
+- `references/`：厂商文档、vendor source 与工具链的固定来源/哈希。
+- `material-requests/`：需要用户从卖家资料包补充的精确清单。
 - `state/`：跨周恢复所需的最小状态。
 - `weekNN/`：本周笔记、答案、日志、证据与完成报告。
 - `scripts/`：可复现源码准备和验收脚本。
@@ -35,3 +37,17 @@
 ```bash
 ./rproc/scripts/bootstrap_sources.sh --full-linux
 ```
+
+检查主机工具链与 STM32 binding：
+
+```bash
+./rproc/scripts/check_host_tools.sh
+```
+
+开发板方便连接时，可在板上只读执行：
+
+```bash
+sh collect_board_inventory.sh | tee board_inventory.txt
+```
+
+脚本位于 `scripts/collect_board_inventory.sh`，不会启动/停止 remote processor，也不会修改 U-Boot 环境。

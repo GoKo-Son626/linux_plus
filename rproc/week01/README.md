@@ -64,7 +64,7 @@
 ./rproc/scripts/bootstrap_sources.sh --full-linux
 ```
 
-当前本机没有 ARM Linux GNU 交叉编译器；可先尝试 Clang `LLVM=1` 对象构建，若缺少 linker/host 依赖则如实记录 blocker，不标记通过。
+当前本机已有 `arm-none-linux-gnueabihf-gcc 15.2.1`、Clang/LLD 22.1.8 与 dt-schema 2026.6；交叉目标 smoke test 和 STM32 remoteproc binding 校验已通过。真实 `stm32_rproc.o` 构建仍须按本周任务保存完整命令、config、日志、exit code 与产物 hash，不能用 smoke test 代替。
 
 ### 周日 5h：RPMI 入门、K1 gap、周测
 

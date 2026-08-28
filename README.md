@@ -16,10 +16,15 @@
 - rproc/RPMI 主线：[rproc/README.md](rproc/README.md)
 - 第 1 周任务：[rproc/week01/README.md](rproc/week01/README.md)
 - 首轮参考资料审计：[rproc/reference-review/2026-08-28-initial-audit.md](rproc/reference-review/2026-08-28-initial-audit.md)
+- 硬件状态矩阵：[rproc/state/hardware_matrix.md](rproc/state/hardware_matrix.md)
+- 厂商资料/源码固定值：[rproc/references/vendor_sources.md](rproc/references/vendor_sources.md)
+- 工具链固定值与验证：[rproc/references/toolchains.md](rproc/references/toolchains.md)
+- STM32 第一批资料清单：[rproc/material-requests/stm32mp157_first_batch.md](rproc/material-requests/stm32mp157_first_batch.md)
 
 ## 证据标签
 
 - `[S]`：固定源码 commit 或 Ratified 规范已核对。
+- `[V]`：厂商公开规格、文档或 vendor source 已核对；仍不能替代板端证据。
 - `[R]`：本地构建或板端运行已验证，并保存完整证据。
 - `[P]`：平台、DTS、固件或 vendor tree 相关，不能泛化。
 - `[H]`：尚未验证的假设，必须保留为待办，禁止写成事实。
