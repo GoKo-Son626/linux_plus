@@ -15,14 +15,17 @@
 
 ## 每周开始顺序
 
-1. `state/week_state.yaml`
+1. `state/current_handoff.md` 与 `state/week_state.yaml`
 2. 上周 `completion_report.md`
 3. 上周错题、源代码追踪、构建/板端日志
-4. 本周 ChatGPT/Gemini 参考审计
-5. 固定源码/规范复核
-6. 生成本周计划、题目与验收门槛
+4. Git 工作树、最近提交与远端同步状态
+5. 本周 ChatGPT/Gemini 参考审计
+6. 固定源码/规范复核
+7. 生成本周计划、题目与验收门槛
 
 任何 AI 长文都不能越过第 1～3 步直接决定下一周内容。
+
+周末必须先落盘、验收、commit + push，再由用户执行 `/compact`。完整顺序见 [state/WEEKLY_CONTEXT_PROTOCOL.md](state/WEEKLY_CONTEXT_PROTOCOL.md)。
 
 ## Week 1
 
@@ -44,6 +47,13 @@
 ./rproc/scripts/check_host_tools.sh
 ```
 
+生成学习者自己的 `stm32_rproc.o` 构建证据：
+
+```bash
+./rproc/scripts/build_stm32_rproc_v7_2.sh 2>&1 \
+  | tee -a rproc/week01/evidence/build_stm32_rproc.log
+```
+
 开发板方便连接时，可在板上只读执行：
 
 ```bash
@@ -51,3 +61,5 @@ sh collect_board_inventory.sh | tee board_inventory.txt
 ```
 
 脚本位于 `scripts/collect_board_inventory.sh`，不会启动/停止 remote processor，也不会修改 U-Boot 环境。
+
+需要用户提供的 STM32MP157/BPI-F3 资料按优先级列在 [material-requests/initial_lab_preparation.md](material-requests/initial_lab_preparation.md)。

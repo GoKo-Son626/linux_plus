@@ -16,10 +16,12 @@
 - rproc/RPMI 主线：[rproc/README.md](rproc/README.md)
 - 第 1 周任务：[rproc/week01/README.md](rproc/week01/README.md)
 - 首轮参考资料审计：[rproc/reference-review/2026-08-28-initial-audit.md](rproc/reference-review/2026-08-28-initial-audit.md)
+- Week 1 二次审计与真实构建：[rproc/reference-review/2026-08-28-week01-second-audit.md](rproc/reference-review/2026-08-28-week01-second-audit.md)
 - 硬件状态矩阵：[rproc/state/hardware_matrix.md](rproc/state/hardware_matrix.md)
+- 周度上下文压缩/恢复协议：[rproc/state/WEEKLY_CONTEXT_PROTOCOL.md](rproc/state/WEEKLY_CONTEXT_PROTOCOL.md)
 - 厂商资料/源码固定值：[rproc/references/vendor_sources.md](rproc/references/vendor_sources.md)
 - 工具链固定值与验证：[rproc/references/toolchains.md](rproc/references/toolchains.md)
-- STM32 第一批资料清单：[rproc/material-requests/stm32mp157_first_batch.md](rproc/material-requests/stm32mp157_first_batch.md)
+- 两块开发板初始资料清单：[rproc/material-requests/initial_lab_preparation.md](rproc/material-requests/initial_lab_preparation.md)
 
 ## 证据标签
 

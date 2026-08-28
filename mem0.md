@@ -19,6 +19,8 @@
 - 每周一用户主动通知“上周学完了，安排这周”。
 - Codex 必须先回读 `rproc/state/`、上周 completion report、错题、构建日志和板端日志，再安排本周。
 - 标准预算 20h：工作日 5 x 2h，周末 2 x 5h。按验收结果推进，不以耗时或看完页数判定完成。
+- 每周验收完成后，先更新 `rproc/state/current_handoff.md` 和长期状态，commit + push 并确认干净同步；Codex 明确给出 safe-to-compact 后，用户再执行一次 `/compact`。
+- 当前代理不能代替用户触发界面 `/compact`；若系统自动压缩或进入新会话，也必须按 `rproc/state/WEEKLY_CONTEXT_PROTOCOL.md` 的顺序恢复。
 
 ## 参考材料边界
 
@@ -41,3 +43,4 @@
 - 本机有 Clang/LLD 22.1.8、ARM bare-metal GCC 15.2、ARM Linux GNU 15.2.1、RISC-V Linux GNU 15.2.0、DTC 1.8.1 与 dt-schema 2026.6；交叉目标对象 smoke test 已通过，`/opt/arm-gcc-15` 未改动。
 - GitHub `origin` 为 `git@github.com:GoKo-Son626/linux_plus.git`，`main` 已建立 upstream；后续完成可解释的小目标即 commit + push。
 - 先按现有证据推进；需要卖家资料时给出精确清单，不要求用户一次性整理全部资料。每周持续推进到当周验收真正完成。
+- Week 1 二次审计已真实构建 `drivers/remoteproc/stm32_rproc.o`；审计构建不冒充学习者验收。第一周默认由学习者重跑构建，板端固件和恢复路径确认前不执行 sysfs start/stop。
